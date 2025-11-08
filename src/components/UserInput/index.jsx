@@ -1,21 +1,11 @@
-import { useState } from "react";
 
-const UserInput = () => {
-    const [enteredValues, setenteredValues] = useState({
-        initialInvestment: 1000,
-        annualInvestment: 1200,
-        investmentReturn: 7,
-        duration: 10,
-    });
 
-    const handleChange = (identifier, newValue) => {
-        setenteredValues((prevValues => {
-            return {
-                ...prevValues,
-                [identifier]: newValue
-            }
-        }))
+const UserInput = ({ changeInput, enteredValues }) => {
+
+    const handleChange = (identifier, value) => {
+        changeInput(identifier, +value);
     }
+
     return (
         <section id='user-input'>
             <form>
