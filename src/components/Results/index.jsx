@@ -2,6 +2,11 @@ import { calculateInvestmentResults } from "../../util/investment";
 
 const Results = ({ enteredValues }) => {
     const computedValues = calculateInvestmentResults(enteredValues);
+    const inputIsValid = enteredValues.initialInvestment > 0 && enteredValues.annualInvestment >= 0 && enteredValues.investmentReturn > 0 && enteredValues.duration > 0;
+
+    if (!inputIsValid) {
+        return <p id="no-data">Enter a valid data</p>;
+    }           
     return (
 
         <table id="result">
